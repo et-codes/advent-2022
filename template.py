@@ -1,6 +1,9 @@
 def get_input(filename):
+    data = []
     with open(filename) as file:
-        return file.readlines()
+        for line in file:
+            data.append(line.strip())
+    return data
 
 
 def part_1():
