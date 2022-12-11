@@ -37,7 +37,7 @@ def part_2():
     data = get_input("./inputs/day_03.txt")
     for i in range(0, len(data), 3):
         rucksacks = data[i : i + 3]
-        rucksacks.sort(key=lambda r: len(r))
+        rucksacks.sort(key=len)
         for item in rucksacks[0]:
             if item in rucksacks[1] and item in rucksacks[2]:
                 common_item = item
