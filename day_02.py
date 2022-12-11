@@ -1,13 +1,3 @@
-# A = Rock, B = Paper, C = Scissors
-# X = Rock, Y = Paper, Z = Scissors
-
-# round score = score for shape (1, 2, 3)
-#    + outcome score (0 loss, 3 draw, 6 win)
-
-def get_input():
-    with open("./inputs/day_02.txt") as file:
-        return file.readlines()
-
 test_data = ["A Y", "B X", "C Z"]
 outcomes = {
     "X": {"A": 3, "B": 0, "C": 6},
@@ -17,9 +7,15 @@ outcomes = {
 choices = {
     "A": {"X": "Z", "Y": "X", "Z": "Y"},
     "B": {"X": "X", "Y": "Y", "Z": "Z"},
-    "C": {"X": "Y", "Y": "Z", "Z": "X"}
+    "C": {"X": "Y", "Y": "Z", "Z": "X"},
 }
 scores = {"X": 1, "Y": 2, "Z": 3}
+
+
+def get_input():
+    with open("./inputs/day_02.txt") as file:
+        return file.readlines()
+
 
 def part_1():
     total_score = 0
@@ -29,6 +25,7 @@ def part_1():
         score = scores[me]
         total_score += outcome + score
     return total_score
+
 
 def part_2():
     total_score = 0

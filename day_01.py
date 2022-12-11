@@ -2,6 +2,7 @@ def get_input():
     with open("./inputs/day_01.txt") as file:
         return file.readlines()
 
+
 def part_1():
     max_calories = 0
     current_calories = 0
@@ -14,6 +15,7 @@ def part_1():
                 max_calories = current_calories
             current_calories = 0
     return max_calories
+
 
 def part_2():
     top_3 = [0, 0, 0]

@@ -1,8 +1,3 @@
-# can't mix item types between compartments
-# exactly one type didn't follow rule
-# same # of items in each compartment
-# first half = compartment 0
-# second half = compartment 1
 import string
 
 
@@ -14,19 +9,21 @@ test_data = [
     "PmmdzqPrVvPwwTWBwg",
     "wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
     "ttgJtRGJQctTZtZT",
-    "CrZsJsPPZsGzwwsLwLmpwMDw"
+    "CrZsJsPPZsGzwwsLwLmpwMDw",
 ]
+
 
 def get_input(filename):
     with open(filename) as file:
         return file.readlines()
 
+
 def part_1():
     sum = 0
     for rucksack in get_input("./inputs/day_03.txt"):
         rucksack = rucksack.strip()
-        comp1 = rucksack[:len(rucksack)//2]
-        comp2 = rucksack[len(rucksack)//2:]
+        comp1 = rucksack[: len(rucksack) // 2]
+        comp2 = rucksack[len(rucksack) // 2 :]
         for item in comp1:
             if item in comp2:
                 common_item = item
@@ -34,11 +31,12 @@ def part_1():
         sum += priority.index(common_item) + 1
     return sum
 
+
 def part_2():
     sum = 0
     data = get_input("./inputs/day_03.txt")
     for i in range(0, len(data), 3):
-        rucksacks = data[i:i+3]
+        rucksacks = data[i : i + 3]
         rucksacks.sort(key=lambda r: len(r))
         for item in rucksacks[0]:
             if item in rucksacks[1] and item in rucksacks[2]:
